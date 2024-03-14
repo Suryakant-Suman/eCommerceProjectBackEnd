@@ -11,6 +11,7 @@ const server_fonfig=require("./configs/server.configs.js")
 const db_config=require("./configs/db.config.js")
 const user_model = require("./models/user.model.js")
 const bcrypt=require("bcryptjs")
+app.use(express.json())
 
 /**
  * create an admin users at the starting of the application
@@ -54,6 +55,10 @@ async function init(){
         console.log("Error While creating Admin", err)
     }
 }
+/**
+ * Stich the routr to the server
+ */
+require("./routes/auth.routes.js")(app)
 
 /**
  * Start the Server
