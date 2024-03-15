@@ -16,5 +16,5 @@ module.exports=(app)=>{
      * post 0.0.0.0:8080/ecomm/api/v1/auth/signin
      */
 
-    app.post('/ecomm/api/v1/auth/signin', authController.signin)
+    app.post('/ecomm/api/v1/auth/signin', [authMW.verifySignInBody],authController.signin)
 }
