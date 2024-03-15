@@ -59,6 +59,7 @@ async function init(){
  * Stich the routr to the server
  */
 require("./routes/auth.routes.js")(app)
+require("./routes/category.routes.js")(app)
 
 /**
  * Start the Server
