@@ -35,3 +35,16 @@ const category_model=require("../models/category.models")
         
         //return the response of the created categories
     }
+
+    exports.getcategories=async(req, res)=>{
+        try{
+            const categories=await category_model.find();
+            return res.status(201).send(categories);
+        }
+        catch(err){
+            console.log("Error while fetching data : ",err)
+            return res.status(501).send({
+                message: "Error while fatching data from database"
+            })
+        }
+    }
